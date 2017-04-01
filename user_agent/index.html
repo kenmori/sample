@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>【1秒解決。iPhone/Androidのsafari/Chromeバージョンを確認する方法】「あれ？どこだっけ？？」</title>
+	<meta name="description" content="【1秒解決。iPhone/Androidのsafari/Chromeバージョンを確認する方法】「あれ？どこだっけ？？」のページです。">
+</head>
+<body>
+<h1 style="font-size: 30px;">あなたのブラウザバージョンはこちらです</h1>
+<div id="agent" style="font-size: 30px;"></div>
+<h2 style="font-size: 30px;">その他の情報(OSバージョンなど)</h2>
+<div id="other" style="font-size: 30px;"></div>
+<br/>
+<br/>
+<br/>
+<a href="http://kenjimorita.jp/iphone_safari_comfirm/">【1秒解決。iPhone/Androidのsafari/Chromeバージョンを確認する方法】「あれ？どこだっけ？？」
+</a>
+
+	<script>
+	var alerttext;
+	var agent = document.getElementById('agent');
+	var other = document.getElementById('other');
+	var version = navigator.userAgent.toString();
+	if(version.indexOf("Safari") && version.indexOf("Chrome") === -1){
+		agent.innerHTML += version.substring(version.indexOf("Safari"))
+		other.innerHTML += version;
+		alerttext = version.substring(version.indexOf("Safari"));
+	} else if(version.indexOf("Chrome")) {
+		agent.innerHTML += version.substring(version.indexOf("Chrome"));
+		other.innerHTML += version;
+		alerttext = version.substring(version.indexOf("Chrome"))
+	} else {
+		agent.innerHTML += version;
+		other.innerHTML += version;
+		alerttext = version;
+	}
+	alert(
+			alerttext
+	);
+</script>
+</body>
+</html>
