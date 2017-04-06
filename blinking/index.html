@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blinking</title>
+	<meta name="description" content="">
+	<style>
+		.pointMessage {
+			font-size: 1.4rem;
+			margin-bottom: 10px;
+			width: 100%;
+			box-sizing: border-box;
+			text-align: center;
+			color: #ea6663;
+			padding: 0 10px;
+		}
+		.messBlinking{
+			-webkit-animation:anim_opacity 2.0s ease-out infinite;
+			-moz-animation:anim_opacity 2.0s ease-out infinite;
+			animation: anim_opacity 2.0s ease-out infinite;
+		}
+		@keyframes anim_opacity {
+			0% {
+				opacity: 0
+			}
+			50% {
+				opacity: 1
+			}
+			100% {
+				opacity: 0
+			}
+		}
+	</style>
+</head>
+<body>
+
+<div class="pointMessage messBlinking">今だけ！ポイント2倍</div>
+
+</body>
+</html>
