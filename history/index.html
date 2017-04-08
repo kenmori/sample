@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>History</title>
+	<meta name="description" content="">
+</head>
+<body>
+
+<div id="ran">0</div>
+<button id="button">click</button>
+
+<script>
+	if(window.history || window.history.pushState){
+		var button = document.getElementById("button");
+		var ran = document.getElementById("ran");
+		button.onclick = function(){
+			var random = Math.floor(Math.random() * 11);
+			ran.textContent = random;
+			var stateObj = {foo: random};
+			history.pushState(stateObj, null, "#"+ random);
+		};
+		window.onpopstate = function(event){//「戻る」ボタンの挙動
+			var ran = document.getElementById("ran");
+			if(event.state){//pushStateで履歴を渡したオブジェクトがあればpopで取り出す
+				//buttonを2回clickした際の渡ってくるeventイメージ{state: {foo: random}, state: {foo: random}}
+				console.log(event.state)
+				ran.textContent = event.state.foo;
+			} else {//なければ
+				//初期表示
+				ran.textContent = 0;
+			}
+		}
+	}
+</script>
+</body>
+</html>
