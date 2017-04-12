@@ -1,7 +1,7 @@
 {
   "name": "kenmori-react-webpack",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
     "build": "webpack"
   },
   "devDependencies": {
