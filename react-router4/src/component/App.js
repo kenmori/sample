@@ -6,7 +6,15 @@ import Features from './Features';
 import Home from './Home';
 import NoMatch from './NoMatch';
 
+
 class App extends Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            profile: 'kenji'
+        }
+    }
+
     render(){
         return (
             <div>
@@ -16,8 +24,10 @@ class App extends Component {
                     <li><Link to={{pathname: '/feature', state: { fromDashboard: true }}}>feature</Link></li>
                 </ul>
                 <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path='/about'component={About} />
+                    <Route exact path="/" render={ props => <Home title={"I am Title"}
+                        status={"Here is my status"} myprofile={this.state.myprofile} {...props} />}
+                        />
+                    <Route path='/about'render={ props => <About {...props} /> } />
                     <Route path='/feature' component={Features} />
                     <Route component={NoMatch}/>
                 </Switch>
