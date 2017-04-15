@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>アスペクト比を保ちながら画像を可変</title>
+	<meta name="description" content="">
+	<style>
+		p {
+			margin: 0;
+		}
+		/*アスペクト比を保ちながら可変(image要素)*/
+		.background--container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 66.51%;
+		}
+		.background--container :before {
+			contain: '';
+			display:block;
+		}
+		.background--child {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+		}
+
+		/*アスペクト比を保ちながら可変(背景画像)*/
+		.background__image{
+			background: url(./img/main.jpg) no-repeat;
+			background-size: 100% auto;
+			padding-bottom: 66.51%;
+		}
+		.background__image--text {
+			position: relative;
+		}
+		.background__image p {
+			position: absolute;
+			font-size: 3vw;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			color: #fff;
+		}
+		.background--contain {
+			background: url('./img/main.jpg') 0 0 no-repeat;
+			height: 0;
+			padding-bottom: 66.51%;
+			background-size: contain;
+		}
+	</style>
+</head>
+<body>
+	<h2>windowサイズを変えてみてください。</h2>
+	<h3>①アスペクト比を保ちながら可変(image要素)</h3>
+	<div class="background--container">
+		<div class="background--child">
+			<img src="./img/main.jpg" width="100%">
+		</div>
+	</div>
+	<h3>②アスペクト比を保ちながら可変(背景画像) テキストは後続</h3>
+	<div class="">
+		<div class="background__image"></div>
+		ファファッファファ
+	</div>
+	<h3>③アスペクト比を保ちながら可変(背景画像) テキストも可変対応して中央</h3>
+	<div class="">
+		<div class="background__image background__image--text"><p>テキストは中央(文字がいくら増えても)テキストは中央(文字がいくら増えても)テキストは中央(文字がいくら増えても)</p></div>
+	</div>
+	<h3>④background-containで背景画像を可変に保つ</h3>
+	<div class="background--contain"></div>
+</body>
+</html>
