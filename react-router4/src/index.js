@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import App from './component/App';
-import {BrowserRouter as BrowserRouter, browserHistory, IndexRoute, Redirect, Router, Route, NotFoundRoute, DefaultRoute, Link, RouteHandler} from 'react-router-dom';
+import Home from './component/Home';
+import {BrowserRouter as Switch, BrowserRouter, getUserConfirmation,browserHistory, IndexRoute, Redirect, Router, Route, NotFoundRoute, DefaultRoute, Link, RouteHandler} from 'react-router-dom';
 import 'babel-polyfill';
 
 let createElement = function(Component, props) {
@@ -9,14 +10,23 @@ let createElement = function(Component, props) {
     return <Component {...props} />;
 };
 
+const getConfirmation = (message, callback) => {
+    const allowTransition = window.confirm(message)
+    callback(allowTransition)
+}
+
 
 class Endpoint extends Component {
  render(){
       return (
-          <BrowserRouter history={browserHistory} createElement={createElement} >
+          <BrowserRouter
+                history={browserHistory}
+                createElement={createElement}
+                basename='/home/'
+                getUserConfirmation={getUserConfirmation}
+                >
             <div>
-                <Route path='/home/' component={App} />
-                <Redirect from='/home' to='/home/' />
+                <Route path='/' component={App} />
             </div>
           </BrowserRouter>
         )
