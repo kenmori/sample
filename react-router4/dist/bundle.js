@@ -21837,6 +21837,8 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -21874,15 +21876,22 @@
 	var App = function (_Component) {
 	    _inherits(App, _Component);
 
-	    function App() {
+	    function App(props) {
 	        _classCallCheck(this, App);
 
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	        _this.state = {
+	            profile: 'kenji'
+	        };
+	        return _this;
 	    }
 
 	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -21916,8 +21925,14 @@
 	                _react2.default.createElement(
 	                    _reactRouter.Switch,
 	                    null,
-	                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
-	                    _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
+	                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render(props) {
+	                            return _react2.default.createElement(_Home2.default, _extends({ title: "I am Title",
+	                                status: "Here is my status", myprofile: _this2.state.myprofile }, props));
+	                        }
+	                    }),
+	                    _react2.default.createElement(_reactRouterDom.Route, { path: '/about', render: function render(props) {
+	                            return _react2.default.createElement(_About2.default, props);
+	                        } }),
 	                    _react2.default.createElement(_reactRouterDom.Route, { path: '/feature', component: _Features2.default }),
 	                    _react2.default.createElement(_reactRouterDom.Route, { component: _NoMatch2.default })
 	                )
@@ -26201,13 +26216,7 @@
 	                    null,
 	                    'Features'
 	                ),
-	                'Features here!!',
-	                _react2.default.createElement(_reactRouter.Prompt, {
-	                    message: function message(location) {
-	                        return 'Are you soure ' + location.pathname;
-	                    },
-	                    when: true
-	                })
+	                'Features here!!'
 	            );
 	        }
 	    }]);
@@ -26263,8 +26272,18 @@
 	                    null,
 	                    'Home'
 	                ),
-	                'home here!!'
+	                'home here!!',
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: this.onfire },
+	                    'click'
+	                )
 	            );
+	        }
+	    }], [{
+	        key: 'onfire',
+	        value: function onfire() {
+	            this.props.history.push('home', { i: 'faf' });
 	        }
 	    }]);
 
