@@ -1,4 +1,4 @@
-react-router@3.x
+react-router@4.x
 
 npm install
 
