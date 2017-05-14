@@ -8,7 +8,10 @@ class Features  extends Component {
             <div>
             <h1>Features</h1>
                 Features here!!
-
+                    {/*<Prompt
+                    message={ location => (`Are you soure ${location.pathname}`)}
+                    when={true}
+                    />*/}
             </div>
         )
     }

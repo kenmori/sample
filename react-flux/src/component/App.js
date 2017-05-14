@@ -3,6 +3,7 @@ import {BrowserRouter as IndexRoute, Redirect, Router, Route, NotFoundRoute, Def
 import PropTypes from 'prop-types';
 import { Switch } from 'react-router'
 import About from './About';
+import Count from './Count';
 import Features from './Features';
 import Home from './Home';
 import Header from './Header';
@@ -26,6 +27,7 @@ class App extends Component {
                         status={"Here is my status"} myprofile={this.state.myprofile} {...this.props} />}
                         />
                     <Route path='/about'render={ (props) => <About {...this.props} /> } />
+                    <Route path='/count'render={ (props) => <Count {...this.props} /> } />
                     <Route path='/feature' render={ (props) => <Features {...this.props} />} />
                     <Route component={NoMatch}/>
                 </Switch>
