@@ -1,18 +1,18 @@
 
 import {EventEmitter} from 'events';
-
 import Dispatcher from '../dispatcher/Dispatcher';
 import ActionTypes from '../data/CounterActionTypes';
 
 let counter = {
     counter: 0
 }
+
 export const CounterStore = Object.assign({}, EventEmitter.prototype, {
     getAll: function(){
         return counter;
     },
-    emitChange: function(counter){
-        this.emit(ActionTypes.UP)
+    emitChange: function(action){
+        this.emit(action)
     },
     addEventListener: function(callback){
         this.on(ActionTypes.UP, callback)
@@ -25,14 +25,12 @@ export const CounterStore = Object.assign({}, EventEmitter.prototype, {
     }
 });
 
-
 Dispatcher.register((action)=>{
     console.log(action)
     switch (action.type){
         case ActionTypes.UP:
             console.log(action.type)
             CounterStore.add();
-            CounterStore.emitChange();
+            CounterStore.emitChange(ActionTypes.UP);
     }
-
 })
