@@ -1,8 +1,12 @@
-import {Dispatcher} from '../dispatcher/Dispatcher';
-import FormActionTypes from '../constants/FormActionTypes';
-
+import Dispatcher from '../dispatcher/Dispatcher';
+import FormActionApiClient from '../api/FormActionApiClient';
 export const FormActionCreater = {
     submit(payload){
-        Dispatcher.dispatch(payload);
+        console.log('submit');
+        FormActionApiClient.get(payload.data)
+            .then(function(data){
+                Dispatcher.dispatch(payload, data);
+            })
+
     }
 }

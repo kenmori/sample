@@ -1,4 +1,4 @@
-import {Dispatcher} from '../dispatcher/Dispatcher';
+import Dispatcher from '../dispatcher/Dispatcher';
 import FormActionTypes from '../constants/FormActionTypes';
 import {EventEmitter} from 'events';
 let data = {
@@ -18,11 +18,11 @@ const FormStore = Object.assign({}, EventEmitter.prototype, {
 })
 
 
-Dispatcher.register((action)=>{
+Dispatcher.register((action, d)=>{
     switch(action.type){
         case 'formsend':
             console.log("fafa");
-            data.text = action.value;
+            data.text = d.value;
             FormStore._emitChange(action.type);
             break;
     }
