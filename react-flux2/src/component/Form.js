@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import FormStore from '../store/FormStore';
-import FormActionCreater from '../actions/FormActionCreater';
+import {FormActionCreater} from '../actions/FormActionCreater';
 import FormAxtionTypes from '../constants/FormActionTypes';
 class Form extends Component {
     constructor(props) {
@@ -20,14 +20,15 @@ class Form extends Component {
         this.setState(this._getAll());
     }
     _submit(){
+        console.log('_submit');
         FormActionCreater.submit({type: FormAxtionTypes.CHANGE, value: document.querySelector('text').value});
     }
     render(){
         return (
-            <form method='POST'>
+            <div>
                 <input type='text' id='text' value={this.state.text}/>
-                <button onClick={this._submit}>submit</button>
-            </form>
+                <button onclick={this._submit()}>submitfaa</button>
+            </div>
         )
     }
 }
