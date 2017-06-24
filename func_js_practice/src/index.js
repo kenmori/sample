@@ -6,7 +6,7 @@ import 'babel-polyfill';
 class Greet extends Component {
  render() {
   return (
-   <ul id='result'></ul>
+   <ul id='result'>fa</ul>
   )
  }
 }

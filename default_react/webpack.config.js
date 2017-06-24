@@ -1,33 +1,33 @@
 module.exports = {
     context: __dirname + "/src",
     entry: {
-        javascript: "./index.js",
+        index: "./index.js",
         html: "./index.html",
         css: "./index.css",
     },
 
     output: {
         path: __dirname + "/dist",
-        filename: "bundle.js",
+        filename: "[name].js",
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: ["babel-loader"],
+                loader: "babel-loader",
                 query: {
-                    presets:['react', 'es2015', 'stage-3']
+                    presets: ['react', 'es2015', 'stage-3']
                 }
             },
             {
                 test: /\.html$/,
-                loader: "file?name=[name].[ext]",
+                loader: "file-loader?name=index.[ext]"
             },
             {
                 test: /\.css$/,
-                loader: "file?name=[name].[ext]",
+                loader: "file-loader?name=index.[ext]"
             },
         ],
     },
