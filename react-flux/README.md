@@ -1,9 +1,13 @@
-react-tesst
+react-test
 
+*1*
 npm install
 
-run
+*2*
 webpack
+
+*3*
 npm start
 
-see http://localhost:8080/
+*visit*
+http://localhost:8080/
