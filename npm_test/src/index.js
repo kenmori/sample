@@ -7,16 +7,8 @@ import 'babel-polyfill';
 
 class Greet extends Component {
  render() {
-  console.log(ReactSVG)
   return (
-   <ul id='result'>
-             <div className='svg'>
-      <ReactSVG
-       path='./src/svg/banner_top_pr.svg'
-               className='example'
-      />
-     </div>
-      </ul>
+      <div></div>
   )
  }
 }
