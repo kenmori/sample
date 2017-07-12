@@ -4,20 +4,25 @@ import 'babel-polyfill';
 import 'lodash';
 import $ from 'jquery';
 import InfiniteScroll from 'react-infinite-scroller';
-import request from 'request';
+import 'whatwg-fetch'
 
 
 class Greet extends Component {
+ constructor(){
+  super();
+  this.state = {
+   track: []
+  }
+ }
  _loadFunc(){
-  console.log("fafa");
-  request(' http://localhost:3000/posts', function (error, response, body) {
-   console.log('error:', error); // Print the error if one occurred
-   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-   console.log('body:', body.length); // Print the HTML for the Google homepage.
-  });
+  fetch(' http://localhost:3000/posts').then((res)=>{
+   return res.json();
+  }).then((res)=>{
+   this.state.track.push(res);
+   console.log(this.state.track);
+  })
  }
  render() {
-  console.log(request);
   let enrollment = [
    {enrollment: 2, grade: 100},
    {enrollment: 2, grade: 80},
@@ -32,7 +37,9 @@ class Greet extends Component {
   hasMore={true || false}
   loader={<div className="loader">Loading ...</div>}
  >
-
+  {this.state.track.map(elem => {
+  <div>{this.state.track}</div>
+ })}
  </InfiniteScroll>
   )
  }
