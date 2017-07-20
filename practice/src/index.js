@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import ReactSVG from 'react-svg'
-
+import R from 'ramda';
 import 'babel-polyfill';
 
 
 class Greet extends Component {
  render() {
-  var SurveyAccessLogApiClient = {
-   post: function(param){
-    return param;
-   }
-  }
-  var isTarget = function(target){
-    return target !== '' && target.substr(1).indexOf('adv_id') >= 0
-  }
-  var valFun = function(target){
-    return target.substr(1).split('=')[1];
-  }
 
-  var runSurvery = function (url, fun){
-    if(isTarget(url)){
-     return fun.post({satori_id: "9090", adv_id : valFun(url)});
-    }
-  }
+  const add = (a) => a + 1;
+  const times2 = (a) => a * 2;
+  const compose = (a, b) => (c) => a(b(c));
+  console.log(compose(add, times2)(4));
 
-  console.log(runSurvery('http://fafafa/?adv_id=fafa', SurveyAccessLogApiClient));
+  const greeting = (name) => `Hello ${name}`;
+  const pipe = (fns) => (x) => fns.reduce((v, f) => f(v), x);
+  const users = [{name: 'chet', age: 25}, {name: 'joe', age: 24}];
+
+  console.log(
+      R.pipe(
+      R.sortBy(
+          R.prop('age')
+      ),
+      R.map(R.prop('name')),
+      R.join(', '),
+      )(users)
+  );
+
+  console.log(greeting('kenji'))
   return (
       <div></div>
   )
