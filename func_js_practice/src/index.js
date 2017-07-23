@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import 'babel-polyfill';
-
+import Wrapper, {wrap} from './Wrapper';
+import R from 'ramda';
 
 class Greet extends Component {
  render() {
@@ -23,7 +24,9 @@ class Greet extends Component {
   const seqed = seq(add, div);
   ////////////////////////
 
-
+  console.log(Wrapper, wrap);
+  const WrappedValue = wrap('kenji');
+  console.log(WrappedValue.map(R.toUpper));
   return (
    <ul id='result'>fafafa</ul>
   )
