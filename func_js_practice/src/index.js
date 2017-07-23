@@ -27,6 +27,17 @@ class Greet extends Component {
   console.log(Wrapper, wrap);
   const WrappedValue = wrap('kenji');
   console.log(WrappedValue.map(R.toUpper));
+  /////////////////////////////////////////////
+  Wrapper.prototype.fmap = function(f){
+   return wrap(f(this._value));
+  }
+  const plus = R.curry((a, b) => a + b);
+  const plus3 = plus(3);
+  const two = wrap(2);
+  const five = two.fmap(plus3);
+  console.log(five.map(R.identity));
+  //5
+
   return (
    <ul id='result'>fafafa</ul>
   )
