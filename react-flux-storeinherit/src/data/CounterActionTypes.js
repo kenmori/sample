@@ -1,3 +1,4 @@
 export default  {
-    UP : 'UP'
+    UP : 'UP',
+    UPSECOND: 'UPSECOND'
 }
