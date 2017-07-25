@@ -5,6 +5,15 @@ export default {
             type: count.actionType,
             counter: count.counter
         });
+    },
+    counter2: function(count){
+        console.log(count)
+        Dispatcher.dispatch({
+            type: count.actionType,
+            counter: count.counter
+        });
     }
+
 }
+
 
