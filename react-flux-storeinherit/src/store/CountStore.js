@@ -10,9 +10,9 @@ let counter2 = {
     counter: 0
 }
 
-const menuId = 29299;
+
 class CounterStore extends EventEmitter {
-    constructor(){
+    constructor(menuId){
         super();
         this.menuId = menuId;
     }
@@ -23,7 +23,6 @@ class CounterStore extends EventEmitter {
         this.emit(action)
     }
     addEventListener(callback){
-        console.log(callback)
         this.on(ActionTypes.UP, callback)
     }
     removeEventListener(callback){
@@ -38,19 +37,17 @@ class CounterStore extends EventEmitter {
 }
 
 class CounterSecondStore extends EventEmitter {
-    constructor(){
+    constructor(menuId){
         super();
-        this.menuId = 2222;
+        this.menuId = menuId;
     }
     getAll(){
         return counter2;
     }
     emitChange(action){
-        console.log(action)
         this.emit(action)
     }
     addEventListener(callback){
-        console.log(callback)
         this.on(ActionTypes.UPSECOND, callback)
     }
     removeEventListener(callback){
@@ -65,8 +62,8 @@ class CounterSecondStore extends EventEmitter {
 }
 
 
-export var CounterStoreIns = new CounterStore();
-export var CounterSecondStoreIns = new CounterSecondStore();
+export var CounterStoreIns = new CounterStore(1111);
+export var CounterSecondStoreIns = new CounterSecondStore(2222);
 
 Dispatcher.register((action)=>{
     switch (action.type){
