@@ -6,7 +6,7 @@ import {CounterSecondStoreIns} from '../store/CountStore';
 import CounterActions from '../action/CountActions';
 import ActionTypes from '../data/CounterActionTypes';
 
-class Count  extends Component {
+class Count extends Component {
     constructor(props){
         super(props)
         this.click = this.click.bind(this);

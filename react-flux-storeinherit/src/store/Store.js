@@ -1,4 +1,4 @@
 import {EventEmitter} from 'events';
 
 
-export const Store = new EventEmitter()
+export class Store extends EventEmitter{}

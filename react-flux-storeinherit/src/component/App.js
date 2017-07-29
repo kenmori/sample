@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Switch } from 'react-router'
 import About from './About';
 import Count from './Count';
+import Input from './Input';
 import Features from './Features';
 import Home from './Home';
 import Header from './Header';
@@ -28,6 +29,7 @@ class App extends Component {
                         />
                     <Route path='/about'render={ (props) => <About {...this.props} /> } />
                     <Route path='/count'render={ (props) => <Count {...this.props} /> } />
+                    <Route path='/input'render={ (props) => <Input {...this.props} /> } />
                     <Route path='/feature' render={ (props) => <Features {...this.props} />} />
                     <Route component={NoMatch}/>
                 </Switch>
