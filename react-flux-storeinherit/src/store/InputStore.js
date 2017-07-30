@@ -5,7 +5,7 @@ import InputActionType from '../data/InputActionType';
 
 export default class InputStore extends EventEmitter {
     constructor(){
-        super(null);
+        super();
         this.inputValue = '';
         this.getInputfafa = this.getInputfafa.bind(this)
         this.emitInput = this.emitInput.bind(this)
