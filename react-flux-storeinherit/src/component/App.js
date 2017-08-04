@@ -6,6 +6,7 @@ import About from './About';
 import Count from './Count';
 import Input from './Input';
 import TextArea from './TextArea';
+import Playground from './Playground';
 import Features from './Features';
 import Home from './Home';
 import Header from './Header';
@@ -32,6 +33,7 @@ class App extends Component {
                     <Route path='/count'render={ (props) => <Count {...this.props} /> } />
                     <Route path='/input'render={ (props) => <Input {...this.props} /> } />
                     <Route path='/textarea'render={ (props) => <TextArea {...this.props} /> } />
+                    <Route path='/playground'render={ (props) => <Playground {...this.props} /> } />
                     <Route path='/feature' render={ (props) => <Features {...this.props} />} />
                     <Route component={NoMatch}/>
                 </Switch>
