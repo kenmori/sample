@@ -16,6 +16,7 @@ class Header extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to={{pathname: '/feature', state: { fromDashboard: true }}}>feature</Link></li>
+            <li><Link to={{pathname: '/hoc', state: { fromDashboard: true }}}>hoc</Link></li>
         </ul>
     </div>
             )
