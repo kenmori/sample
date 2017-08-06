@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import {Enhance} from './Enhance';
 
-class WrapComp extends Component {
-    constructor(){
-        super();
-        this.data = 1;
-    }
+class MyComp extends Component {
     render (){
-        if(!this.data) return <div>Waiting...</div>;
         return (
-            <div>{this.data}</div>
+            <div>
+                {/*データを表示するだけ*/}
+                {this.props.data}
+            </div>
         )
     }
 }
-export default Enhance(WrapComp);
+export default Enhance(MyComp);
