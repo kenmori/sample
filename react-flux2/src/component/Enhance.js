@@ -1,17 +1,20 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 
-
-export const Enhance = ComposedComponent =>  class extends Component {//state管理まで含めたコンポーネント&表現が違うものを使いまわせる
-    constructor(){
-        super();
-        this.state = {data: null};
-    }
-    componentDidMount(){
-        this.setState({data: 'Hello'});
-    }
-    render(){
-        return (
-            <ComposedComponent {...this.props} data={this.state.data} />
-        )
+export const Enhance = (CompositedComponent, func) => {
+    return class extends Component {
+        static defaultProps = {
+            width: 100
+        }
+        state = {
+            name: 'morita'
+        }
+        componentDidMount(){
+            this.setState({
+                name: 'morita'
+            })
+        }
+        render(){
+            return <CompositedComponent {...this.props} name={this.state.name} func={func} />
+        }
     }
 }
