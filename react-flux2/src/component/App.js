@@ -9,7 +9,7 @@ import Header from './Header';
 import Form from './Form';
 import NoMatch from './NoMatch';
 import Counter from './Counter';
-import WrapComp from './WrapComp';
+import MyComponent from './MyComponent';
 
 class App extends Component {
     constructor(props){
@@ -31,7 +31,7 @@ class App extends Component {
                     <Route path='/feature' render={ (props) => <Features {...this.props} />} />
                     <Route path='/form' render={ (props) => <Form {...this.props} />} />
                     <Route path='/counter' render={ (props) => <Counter {...this.props} />} />
-                    <Route path='/hoc' render={ (props) => <WrapComp {...this.props} />} />
+                    <Route path='/hoc' render={ (props) => <MyComponent {...this.props} />} />
                     <Route component={NoMatch}/>
                 </Switch>
             </div>
