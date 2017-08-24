@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 
-export const Enhance = ComposedComponent =>  class extends Component {
+export const Enhance = ComposedComponent =>  class extends Component {//state管理まで含めたコンポーネント&表現が違うものを使いまわせる
     constructor(){
         super();
         this.state = {data: null};
