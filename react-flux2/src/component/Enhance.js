@@ -13,8 +13,12 @@ export const Enhance = (CompositedComponent, func) => {
                 name: 'morita'
             })
         }
-        render(){
-            return <CompositedComponent {...this.props} name={this.state.name} func={func} />
+        render(props, state, context){
+            return <CompositedComponent {...props} name={this.state.name} func={func} />
         }
     }
+}
+
+const click = (name) =>{
+    console.log(name);
 }
