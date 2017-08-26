@@ -1,4 +1,4 @@
-class Person {
+export class Person {
     constructor(firstname, lastname, ssn){
         this._firstname = firstname;
         this._lastname = lastname;
@@ -32,7 +32,7 @@ class Person {
     }
 }
 
-class Student extends Person {
+export class Student extends Person {
     constructor(firstname, lastname, ssn, school){
         super(firstname, lastname, ssn);
         this._school = school;
@@ -41,3 +41,4 @@ class Student extends Person {
         return this._school;
     }
 }
+
