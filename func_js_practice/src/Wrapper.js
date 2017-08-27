@@ -61,3 +61,28 @@ const half = (val) => isEven(val) ? wrap(val / 2) : empty();
 
 console.log(half(4));
 console.log(half(5));
+
+class WrapperMonado {
+    constructor(value){//型コンストラクタ
+        this._value = value;
+    }
+    static of(a){// ユニット関数: ある型の値をモナド構造に挿入する(wrapやemptyに似ている)
+        return new WrapperMonado(a);
+    }
+    map(f){//バインド関数(ファンクター):処理をチェーン化する(flatMap)
+        return WrapperMonado.of(f(this._value));
+    }
+    join(){//結合処理: モナド構造のレイヤーを単層に平坦化する(入れ子になった層を平坦化する)
+        if(!(this._value instanceof WrapperMonado)){
+            return this._value.join();
+        }
+    }
+    get(){
+        return this._value;
+    }
+    toString(){
+        return `WrapperMonado(${this._value})`;
+    }
+}
+
+console.log(WrapperMonado.of('Hello Monados!').map(R.toUpper).map(R.identity));// -> WrapperMonado('HELLO MONADOS')
