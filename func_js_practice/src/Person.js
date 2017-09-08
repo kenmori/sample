@@ -30,6 +30,16 @@ export class Person {
     toString (){
         return  `Person(${this._firstname}, ${this._lastname})`;
     }
+    // peopleInSameCountry(friends){
+    //     var result = [];
+    //     for (let idx in friends){
+    //         var friend = friends [idx];
+    //         if(this.address.country === friend.address.country){
+    //             result.push(friend);
+    //         }
+    //     }
+    //     return result;
+    // }
 }
 
 export class Student extends Person {
@@ -40,5 +50,12 @@ export class Student extends Person {
     get school(){
         return this._school;
     }
+    // studentsInSameCountryAndSchool(friends){
+    //     var closeFriends = super.peopleInSameCountry(friends);
+    //     var result = [];
+    //     for(let idx in closefriends){
+    //         var friend =
+    //     }
+    // }
 }
 
